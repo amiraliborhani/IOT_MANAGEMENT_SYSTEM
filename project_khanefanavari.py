@@ -16,6 +16,7 @@ class Device:
         print('now it is turned off')
     def get_status(self):
         return self.status
+        
 import numpy as np
 class Sensor:
     def __init__(self,name,group,unit,pin):
@@ -31,7 +32,6 @@ class admin_panel():
     def __init__(self):
         self.groups={}
     def create_group(self,group_name):
-        
         if group_name not in self.groups:
             self.groups[group_name]=[]
             print(f'Group "{group_name}" is created')
@@ -49,7 +49,6 @@ class admin_panel():
             new_device=Device(topic)
             self.add_device_to_group(group_name, new_device)
             print(f'device {name} ({device_type}) is created in group {group_name}')
-            
         else:
             print('your group {group_name} is dublicated')
     def create_multiple_devices(self,group_name,device_type,number_of_devcies):
