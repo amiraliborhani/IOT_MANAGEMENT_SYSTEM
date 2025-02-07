@@ -1,3 +1,5 @@
+
+
 class Device:
     def __init__(self,topic,pin=None):
         self.topic=topic
@@ -16,7 +18,12 @@ class Device:
         print('now it is turned off')
     def get_status(self):
         return self.status
+
+
+
+
 import numpy as np
+
 class Sensor:
     def __init__(self,name,group,unit,pin):
         self.name=name
@@ -26,6 +33,10 @@ class Sensor:
         self.current_value=None
     def read_sensor(self):
         return np.random.uniform(20,25)
+
+
+
+
 
 class admin_panel:
     def __init__(self):
