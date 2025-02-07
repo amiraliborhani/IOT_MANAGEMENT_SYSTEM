@@ -10,10 +10,10 @@ class Device:
         self.pin=pin
     def turn_on(self):
         self.status='on'
-        #print('now it is turned on')
+        print('now it is turned on')
     def turn_off(self):
         self.status='off'
-        #print('now it is turned off')
+        print('now it is turned off')
     def get_status(self):
         return self.status
 import numpy as np
