@@ -1,5 +1,3 @@
-
-
 class Device:
     def __init__(self,topic,pin=None):
         self.topic=topic
@@ -12,20 +10,15 @@ class Device:
         self.pin=pin
     def turn_on(self):
         self.status='on'
-        print('now it is turned on')
+        #print('now it is turned on')
     def turn_off(self):
         self.status='off'
-        print('now it is turned off')
+        #print('now it is turned off')
     def get_status(self):
         return self.status
-
-
-
-
 import numpy as np
-
 class Sensor:
-    def __init__(self,name,group,unit,pin):
+    def __init__(self,name,group,unit,pin=None):
         self.name=name
         self.group=group
         self.pin=pin
@@ -33,10 +26,6 @@ class Sensor:
         self.current_value=None
     def read_sensor(self):
         return np.random.uniform(20,25)
-
-
-
-
 
 class admin_panel:
     def __init__(self):
@@ -112,22 +101,33 @@ class admin_panel:
         else:
             print(f'group {gorup_name} does not exsist')
     def get_status_in_device_type(self,device_type):
-        
-        pass
-    #Sensor --> a1=Sensor(...)
-    #def create_device
-    
-    def create_sensor(self):
-        pass
-    
-    def add_sensor_in_group(self,group_name):
-        #yek group name bede va to sensor ro tooye oon list ezaf koni
-        
-        #add_devcie_in_group
-        
-        pass
-    
-    
+        all_device=[]
+        for i in self.groups.values():
+            all_device.extend(i)
+        for device in all_device:
+          if device.device_type==device_type:
+               if device.status=='on':
+                 print(f'{device.name} in {device.group} is on')
+               elif device.status=='off':
+                 print(f'{device.name} in {device.group} is off')
+          else:
+            print(f'{device_type} not found')
+            break
+    def create_sensor(self,name,group,unit):
+         if group in self.groups:
+            topic=f'{name}/{group}/{unit}'
+            new_sensor=Sensor(topic)
+            self.add_sensor_in_group(group, new_sensor)
+            print(f'sensor {name} craeted in group {group}')
+         else:
+           print('your group does not exist')
+            
+    def add_sensor_in_group(self,group,sensor):
+        if group in self.groups:
+            self.groups[group].append(sensor)
+            print(f'sensor {sensor} added in group {group}')
+        else:
+            print('f group {group} does not exsist')
     def get_data_from_sensor_in_group(self,group_name):
         
         '''
