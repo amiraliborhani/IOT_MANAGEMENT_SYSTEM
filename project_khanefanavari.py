@@ -91,20 +91,23 @@ class admin_panel:
         else:
             print(f'group {group_name} does not exist')
 
-    
+    #CORRECT
     def turn_on_all_in_groups(self,group_name):
         devices=self.get_devices_in_groups(group_name) 
         for device in devices:
             device.turn_on()
         print(f'all devices in group {group_name} are now turned on')
 
-    
+    #CORRECT
     def turn_off_all_in_groups(self,group_name):
         devises=self.get_devices_in_groups(group_name)
         for devise in devises:
             devise.turn_off()
         print(f'all devices in group {group_name} are now turned off')
 
+    #CORRECT
+    #hamchenin mitoonid baraye hame self.groups.keys get_devices_in_groups() ro seda bezanid baraye hame goroh ha bad extend konid
+    #ama baz farghi nemikone
     
     def turn_on_all_devices(self):
        for devices in self.groups.values():
@@ -123,6 +126,9 @@ class admin_panel:
             i.turn_off()
         print('all devices are turned off now')
 
+
+    #inaj bejaye inke shart bezarid ma tooye device ha yek tabe darim bename show_status()
+    #pas mitoni begi for i in all_device: status=i.show_status() badesh print konish
     
     def get_status_in_group(self,gorup_name):
         if gorup_name in self.groups:
@@ -135,6 +141,8 @@ class admin_panel:
         else:
             print(f'group {gorup_name} does not exsist')
 
+
+    #inja ham kamelan dorose fght bad az device,device_type==device_type dobare bejaye if o ina kafie az tabeeye device.show_status() estefade konid
     
     def get_status_in_device_type(self,device_type):
         all_device=[]
@@ -149,7 +157,18 @@ class admin_panel:
           else:
             print(f'{device_type} not found')
             break
-              
+
+    #jof tabe haye balat dorose ama kolan khasam begam efficient tarin rah chie
+
+    #fght jaye in tabat ro avaz krdm ovordma bala
+    def add_sensor_in_group(self,group,sensor):
+        if group in self.groups:
+            self.groups[group].append(sensor)
+            print(f'sensor {sensor} added in group {group}')
+        else:
+            print('f group {group} does not exsist')
+
+    #ahsant daghighan
     def create_sensor(self,name,group,unit):
          if group in self.groups:
             topic=f'{name}/{group}/{unit}'
@@ -159,12 +178,14 @@ class admin_panel:
          else:
            print('your group does not exist')
             
-    def add_sensor_in_group(self,group,sensor):
-        if group in self.groups:
-            self.groups[group].append(sensor)
-            print(f'sensor {sensor} added in group {group}')
-        else:
-            print('f group {group} does not exsist')
+    #khob inja kheyli sade mage ma masalan turn_on_in_group nadarim 
+    #Mirim tooye group , done done devcie ha az turn_on estefade mikonim
+    #inama bayad bere to group va az tabeye read_sensor() oon bala estefade kone
+    #fght gahzie ine ke mire for i in devices (too yek goroh) aval bayad ye if bezari bebini device e ya sensore 
+    #age sensor bod bezani .read_sensor()--->noktash hamine
+
+
+
     def get_data_from_sensor_in_group(self,group_name):
         
         '''
