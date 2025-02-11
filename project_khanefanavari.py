@@ -133,7 +133,6 @@ class admin_panel:
              for i in self.groups.values():
                if isinstance(i, Sensor):
                  print(f'sensor {i.name} data: {i.read_sensor()} {i.unit}')
-            
         else:
             print(f'group {group_name} does not exsist')
     def delete_all_devives_in_group(self,group_name):
