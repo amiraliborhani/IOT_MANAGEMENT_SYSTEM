@@ -156,9 +156,13 @@ class AdminPanel:
         if group_name in self.groups:
              self.groups[group_name]=[]
              print(f'all devces in group {group_name} deletd')
-    def delete_all_sensor_in_group(self,group_name):
-        if group_name in self.groups:
-            for i in self.groups[group_name]:
-                if isinstance(i, Sensor):
-                     self.groups[group_name]=[]
-                     print(f'all devces in group {group_name} deletd')
+    def delete_all_sensors_in_group(self, group_name):
+     new_group = []
+     if group_name in self.groups:
+        for device in self.groups[group_name]:
+            if not isinstance(device, Sensor):  
+                new_group.append(device)
+        self.groups[group_name] = new_group  
+        print(f'all sensors in group {group_name} deleted')
+     else:
+        print(f'group {group_name} does not exist')
