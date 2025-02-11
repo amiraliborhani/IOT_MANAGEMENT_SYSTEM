@@ -136,3 +136,5 @@ class admin_panel:
             
         else:
             print(f'group {group_name} does not exsist')
+
+#2ta def delkhah monde
