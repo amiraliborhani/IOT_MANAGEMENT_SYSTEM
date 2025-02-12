@@ -1,3 +1,14 @@
+
+'''
+APM:
+LOTFAN ESME REPO RO AVAZ KONID B IOT_MANAGEMENT_SYSTEM
+
+
+
+'''
+
+
+#=============================DEVCIE============================
 import numpy as np
 class Device:
     def __init__(self,topic,pin=None):
@@ -18,6 +29,10 @@ class Device:
     def get_status(self):
         return self.status
 
+
+
+#=============================sensor============================
+
 class Sensor:
     def __init__(self,name,group_name,unit,pin=None):
         self.name=name
@@ -27,6 +42,12 @@ class Sensor:
         self.current_value=None
     def read_sensor(self):
         return np.random.uniform(20,25)
+
+
+
+
+#=============================ADMIN PANEL============================
+
 
 class admin_panel:
     def __init__(self):
