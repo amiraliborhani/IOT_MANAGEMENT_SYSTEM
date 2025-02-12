@@ -1,3 +1,4 @@
+#ghay pilevar man ye tabe ezafe neveshtam be zehnam resid ezafe kardam omid varam dorost bashe
 #=============================DEVCIE============================
 import numpy as np
 class Device:
@@ -157,12 +158,23 @@ class admin_panel:
         else:
            print(f'group {group_name} does not exist')
     def delete_all_sensors_in_group(self, group_name):
-     new_group = []
-     if group_name in self.groups:
+      new_group = []
+      if group_name in self.groups:
         for i in self.groups[group_name]:
             if not isinstance(i, Sensor):  
                 new_group.extend(i)
         self.groups[group_name] = new_group  
         print(f'all sensors in group {group_name} deleted')
-     else:
+      else:
         print(f'group {group_name} does not exist')
+    def rename_groupname(self,group_name,new_group_name):
+        if group_name in self.groups:
+             if new_group_name not in self.groups:
+                 self.groups[new_group_name]=self.groups[group_name]
+                 del self.groups[group_name]
+                 print(f'name group {group_name} renamed to {new_group_name} ')
+                
+             else:
+                 print(f'group {new_group_name} is duplicate')
+        else:
+            print(f'group {group_name} does not exsist')
