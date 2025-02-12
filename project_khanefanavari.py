@@ -149,8 +149,6 @@ class admin_panel:
             print(f'sensor {name} craeted in group {group_name}')
          else:
            print('your group does not exist') 
-
-    
     def get_data_from_sensor_in_group(self,group_name):
         if group_name in self.groups:
              for i in self.groups.values():
@@ -158,14 +156,16 @@ class admin_panel:
                  print(f'sensor {i.name} data: {i.read_sensor()} {i.unit}')
         else:
             print(f'group {group_name} does not exsist')
-
-    
     def delete_all_devives_in_group(self,group_name):
+      new_group = []
         if group_name in self.groups:
-             self.groups[group_name]=[]
-             print(f'all devces in group {group_name} deletd')
-
-    
+           for i in self.groups[group_name]:
+               if not isinstance(i, Device):  
+                   new_group.extend(i)
+           self.groups[group_name] = new_group  
+           print(f'all sensors in group {group_name} deleted')
+        else:
+           print(f'group {group_name} does not exist')
     def delete_all_sensors_in_group(self, group_name):
      new_group = []
      if group_name in self.groups:
