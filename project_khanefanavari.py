@@ -1,12 +1,3 @@
-
-'''
-APM:
-LOTFAN ESME REPO RO AVAZ KONID B IOT_MANAGEMENT_SYSTEM
-
-
-'''
-
-
 #=============================DEVCIE============================
 import numpy as np
 class Device:
