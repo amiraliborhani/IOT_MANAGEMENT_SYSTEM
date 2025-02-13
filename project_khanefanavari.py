@@ -1,4 +1,4 @@
-#ghay pilevar man ye tabe ezafe neveshtam be zehnam resid ezafe kardam omid varam dorost bashe
+#ghay pilevar man 2 tabe ezafe neveshtam be zehnam resid ezafe kardam omid varam dorost bashe
 #=============================DEVCIE============================
 import numpy as np
 class Device:
@@ -178,3 +178,14 @@ class admin_panel:
                  print(f'group {new_group_name} is duplicate')
         else:
             print(f'group {group_name} does not exsist')
+    def status_one_device_in_group(self,device_type,name):
+        all_device=[]
+        for i in self.groups.values():
+            all_device.extend(i)
+        for i in all_device:
+         if isinstance(i, Device):
+              if i.name==name and i.device_type==device_type:
+               print(f'status {name} : {i.get_status()}')
+               break
+        else:
+             print('the device_type or name is incorrect')
