@@ -173,7 +173,6 @@ class admin_panel:
                  self.groups[new_group_name]=self.groups[group_name]
                  del self.groups[group_name]
                  print(f'name group {group_name} renamed to {new_group_name} ')
-                
              else:
                  print(f'group {new_group_name} is duplicate')
         else:
