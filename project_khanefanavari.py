@@ -1,4 +1,11 @@
 #ghay pilevar man 2 tabe ezafe neveshtam be zehnam resid ezafe kardam omid varam dorost bashe
+
+'''
+
+APM: ahsant besiar awli
+tahe codeton yek example usage bezarid yani benevisid k chijori msieh estefade kard az class ha
+'''
+
 #=============================DEVCIE============================
 import numpy as np
 class Device:
