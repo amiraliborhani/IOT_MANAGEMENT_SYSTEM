@@ -1,5 +1,3 @@
-#ghay pilevar man 2 tabe ezafe neveshtam be zehnam resid ezafe kardam omid varam dorost bashe
-
 '''
 
 APM: ahsant besiar awli
@@ -100,8 +98,8 @@ class admin_panel:
        for devices in self.groups.values():
           all_device=[]
           all_device.extend(devices)
-          for i in all_device:
-               i.turn_on()
+       for i in all_device:
+           i.turn_on()
        print('all devices are turned on now')
     def turn_off_all_devices(self):
         for devices in self.groups.values():
