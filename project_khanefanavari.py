@@ -5,7 +5,7 @@
 APM: ahsant besiar awli
 tahe codeton yek example usage bezarid yani benevisid k chijori msieh estefade kard az class ha
 '''
-
+#salam aghaye pilevar add kardam
 #=============================DEVCIE============================
 import numpy as np
 class Device:
@@ -195,3 +195,34 @@ class admin_panel:
                break
         else:
              print('the device_type or name is incorrect')
+
+
+a1=Device('home/kitchen/lamp/lamp0')
+a=Sensor('kontorol', 'living_room', 'c')
+b=admin_panel()
+b.create_sensor('amir', 'living_room', 'c')
+b.add_sensor_in_group('living_room', a)
+b.create_group('wc')
+b.create_group('living_room')
+b.create_group('kitchen')
+b.create_device('living_room', 'lamp', 'lamp1')
+b.create_device('wc', 'fan', 'fan1')
+b.create_device('wc', 'water_pomp', 'pomp1')
+b.add_device_to_group('kitchen', a1)
+b.add_device_to_group('living_room', 'lamp')
+b.add_device_to_group('wc', 'fan')
+b.add_device_to_group('fan', 'water_pomp')
+b.create_multiple_devices('kitchen', 'door', 3)
+b.create_multiple_devices('living_room','lamp',7)
+b.create_multiple_devices('wc', 'fan', 2)
+b.create_multiple_devices('wc', 'water_pomp', 2)
+b.turn_on_all_in_groups('wc')
+b.turn_off_all_in_groups('kitchen')
+b.get_status_in_group('kitchen')
+b.get_devices_in_groups('living_room')
+b.turn_on_all_devices()
+b.get_data_from_sensor_in_group('living_room')
+b.delete_all_devives_in_group('wc')
+b.delete_all_sensors_in_group('living_room')
+b.rename_groupname('wc', 'bathroom')
+b.status_one_device_in_group('lamp', 'lamp1')
