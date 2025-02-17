@@ -198,7 +198,7 @@ class admin_panel:
 a1=Device('home/kitchen/lamp/lamp0')
 a=Sensor('kontorol', 'living_room', 'c')
 b=admin_panel()
-b.create_sensor('amir', 'living_room', 'c')
+b.create_sensor('kontorol', 'living_room', 'c')
 b.add_sensor_in_group('living_room', a)
 b.create_group('wc')
 b.create_group('living_room')
