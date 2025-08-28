@@ -1,15 +1,3 @@
-'''
-
-APM: ahsant besiar awli
-tahe codeton yek example usage bezarid yani benevisid k chijori msieh estefade kard az class ha
-'''
-#salam aghaye pilevar add kardam
-
-'''
-
-APM: besiar awli check shod
-
-'''
 #=============================DEVCIE============================
 import numpy as np
 class Device:
